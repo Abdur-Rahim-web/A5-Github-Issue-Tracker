@@ -1,4 +1,6 @@
 const allIssueContainer = document.getElementById('allIssue-container');
+const totalIssue = document.getElementById('total-issue');
+
 
 async function loadAllIssues(){
     const res = await fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues');
@@ -6,6 +8,7 @@ async function loadAllIssues(){
 
     displayAllIssue(data.data);
 }
+
 
 function displayAllIssue(issues){
     issues.forEach(issue => {
@@ -31,6 +34,7 @@ function displayAllIssue(issues){
             </div>`;
         allIssueContainer.appendChild(card);
     });
+    totalIssue.innerText = allIssueContainer.children.length;
 }
 
 loadAllIssues();
