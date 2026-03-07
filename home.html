@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Issues Tracker</title>
+
+     <!-- daisy UI -->
+      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+     <!-- font CDN -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+     <!-- font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+      <style>
+        .font-geist{
+            font-family: "Geist", sans-serif;
+        }
+      </style>
+</head>
+<body class="bg-[#ECE4FF]">
+    <div class="flex justify-between navbar bg-base-100 shadow-sm">
+    <div class="flex">
+        <img class="w-[50px]" src="assets/github-logo.png" alt="">
+        <h1 class="text-2xl font-bold pt-2.5">GitHub Issues Tracker</h1>
+    </div>
+
+    <div>
+        <div class="flex gap-2">
+            <input type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
+            <button class="btn btn-primary">Search</button>
+        </div>
+    </div>
+    </div>
+
+
+    <section class=" bg-white p-4 m-10 md:mx-20 shadow-sm rounded-sm">
+        <button onclick="displayAllIssue()" class="btn btn-primary">All</button>
+        <button class="btn">Open</button>
+        <button class="btn">Closed</button>
+    </section>
+
+    <section class=" bg-[#F8FAFC] p-4 m-10 md:mx-20 shadow-sm rounded-sm">
+        <div class="flex justify-between">
+            <div class="flex gap-2 items-center">
+                <img class="w-10 h-10 bg-[#ECE4FF] rounded-full p-2" src="/assets/Aperture.png" alt="">
+                <div>
+                    <h3 class="text-2xl font-bold">0 Issues</h3>
+                    <p>Track and manage your project issues</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <p>Open</p>
+                <p>Closed</p>
+            </div>
+        </div>
+
+        <hr class="text-[#9d7fe3] mt-4 shadow-sm">
+
+        <!-- all-issue -->
+        <div id="allIssue-container" class="grid grid-cols-4 gap-4 py-4">
+            
+        </div>
+
+
+    </section>
+
+    <script src="script.js/home.js"></script>
+</body>
+</html>
