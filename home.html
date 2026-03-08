@@ -24,6 +24,7 @@
       </style>
 </head>
 <body class="bg-[#ECE4FF]">
+    <!-- nav -->
     <div class="flex justify-between navbar bg-base-100 shadow-sm">
     <div class="flex">
         <img class="w-[50px]" src="assets/github-logo.png" alt="">
@@ -38,13 +39,14 @@
     </div>
     </div>
 
-
+    <!-- toggle-button -->
     <section class=" bg-white p-4 m-10 md:mx-20 shadow-sm rounded-sm">
-        <button onclick="displayAllIssue()" class="btn btn-primary">All</button>
-        <button class="btn">Open</button>
-        <button class="btn">Closed</button>
+        <button id="all-btn" onclick="toggleButton('all-btn')" class="btn btn-primary">All</button>
+        <button id="open-btn" onclick="toggleButton('open-btn')" class="btn">Open</button>
+        <button id="closed-btn" onclick="toggleButton('closed-btn')" class="btn">Closed</button>
     </section>
 
+    <!-- issue-container -->
     <section class=" bg-[#F8FAFC] p-4 m-10 md:mx-20 shadow-sm rounded-sm">
         <div class="flex justify-between">
             <div class="flex gap-2 items-center">
@@ -62,6 +64,11 @@
         </div>
 
         <hr class="text-[#9d7fe3] mt-4 shadow-sm">
+
+        <!-- loadingSpinner -->
+         <div id="loadingSpinner" class="flex hidden justify-center items-center mt-10">
+            <span class="loading loading-dots loading-xl"></span>
+         </div>
 
         <!-- all-issue -->
         <div id="allIssue-container" class="grid grid-cols-4 gap-4 py-4">
