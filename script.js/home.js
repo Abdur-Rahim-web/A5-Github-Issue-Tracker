@@ -2,6 +2,7 @@ const allIssueContainer = document.getElementById('allIssue-container');
 const totalIssue = document.getElementById('total-issue');
 const loadingSpinner = document.getElementById('loadingSpinner');
 
+
 // for toggleButton
 const allBtn = document.getElementById('all-btn');
 const openBtn = document.getElementById('open-btn');
@@ -33,22 +34,25 @@ function hiddenLoading(){
     loadingSpinner.classList.add('hidden');
 }
 
+
+
 async function loadAllIssues(){
     showLoading();
     const res = await fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues');
     const data = await res.json();
+    allIssuesData = data.data;
     hiddenLoading();
-    displayAllIssue(data.data);
+    displayAllIssue(allIssuesData);
 }
 
 
 function displayAllIssue(issues){
     issues.forEach(issue => {
         const card = document.createElement('div');
-        card.innerHTML= `<div class="p-4 bg-white rounded-md shadow-md space-y-2 h-100">
+        card.innerHTML= `<div class="p-4 bg-white rounded-md shadow-md space-y-2 h-100 ${issue.status=='open'?'border-t-green-500':'border-t-purple-500'} border-t-2">
                 <div class="flex justify-between items-center">
                     <img src="assets/Open-Status.png" alt="">
-                    <button class="btn btn-soft btn-secondary">${issue.priority}</button>
+                    <button class="btn btn-soft btn-secondary ${issue.priority=='medium'?'bg-[#FFF6D1] text-[#F59E0B]':''} ${issue.priority=='low'?'bg-[#EEEFF2] text-[#9CA3AF]':''}">${issue.priority}</button>
                 </div>
 
                 <h2 class="text-2xl font-bold">${issue.title}</h2>
@@ -68,5 +72,28 @@ function displayAllIssue(issues){
     });
     totalIssue.innerText = allIssueContainer.children.length;
 }
+
+//filter function for open btn
+function showOpenIssues(){
+    const openIssues = allIssuesData.filter(issue => issue.status === "open");
+
+    allIssueContainer.innerHTML = "";
+    displayAllIssue(openIssues);
+}
+
+//filter function for closed btn
+function showClosedIssues(){
+    const closedIssues = allIssuesData.filter(issue => issue.status === "closed");
+
+    allIssueContainer.innerHTML = "";
+    displayAllIssue(closedIssues);
+}
+
+//filter function for all btn
+function showAllIssues(){
+    allIssueContainer.innerHTML = "";
+    displayAllIssue(allIssuesData);
+}
+
 
 loadAllIssues();

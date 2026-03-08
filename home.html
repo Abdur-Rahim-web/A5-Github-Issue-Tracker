@@ -40,14 +40,14 @@
     </div>
 
     <!-- toggle-button -->
-    <section class=" bg-white p-4 m-10 md:mx-20 shadow-sm rounded-sm">
-        <button id="all-btn" onclick="toggleButton('all-btn')" class="btn btn-primary">All</button>
-        <button id="open-btn" onclick="toggleButton('open-btn')" class="btn">Open</button>
-        <button id="closed-btn" onclick="toggleButton('closed-btn')" class="btn">Closed</button>
+    <section class=" bg-white p-4 m-4 md:mx-20 shadow-sm rounded-sm">
+        <button id="all-btn" onclick="showAllIssues(); toggleButton('all-btn')" class="btn btn-primary mr-2 md:mr-1">All</button>
+        <button id="open-btn" onclick="showOpenIssues(); toggleButton('open-btn')" class="btn mr-2 md:mr-1">Open</button>
+        <button id="closed-btn" onclick="showClosedIssues(); toggleButton('closed-btn')" class="btn">Closed</button>
     </section>
 
     <!-- issue-container -->
-    <section class=" bg-[#F8FAFC] p-4 m-10 md:mx-20 shadow-sm rounded-sm">
+    <section class=" bg-[#F8FAFC] p-4 m-4 md:mx-20 shadow-sm rounded-sm">
         <div class="flex justify-between">
             <div class="flex gap-2 items-center">
                 <img class="w-10 h-10 bg-[#ECE4FF] rounded-full p-2" src="/assets/Aperture.png" alt="">
@@ -58,7 +58,9 @@
             </div>
 
             <div class="flex items-center gap-2">
+                <img src="assets/green-circle.png" alt="">
                 <p>Open</p>
+                <img src="assets/purple-circle.png" alt="">
                 <p>Closed</p>
             </div>
         </div>
@@ -71,12 +73,14 @@
          </div>
 
         <!-- all-issue -->
-        <div id="allIssue-container" class="grid grid-cols-4 gap-4 py-4">
+        <div id="allIssue-container" class="grid grid-cols-1 md:grid-cols-4 gap-4 py-4">
             
         </div>
-
-
     </section>
+
+    
+
+
 
     <script src="script.js/home.js"></script>
 </body>
