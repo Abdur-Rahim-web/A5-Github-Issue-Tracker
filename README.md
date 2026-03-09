@@ -1,10 +1,29 @@
-# 🌟 Welcome To (সহজ সরল সিম্পল) Assignment - 5
+1️⃣ What is the difference between var, let, and const?
+Ans: var=It is a function scoped. I can reassign or redeclare.
+     let=Block scoped, I can change value,reassign & mainly use for loop.
+     const=Block scoped,I can change value,reassign
 
-# **📅 Deadline For 60 marks:** 9th March, 2026 (11:59 pm ⏱️)  
-#  📅 No Deadline For 50 marks  
-# **📅 Deadline For 30 marks:** Any time after 9th March.
+2️⃣ What is the spread operator (...)?
+Ans: The spread operator expands elements of an array or object.
 
----
+3️⃣ What is the difference between map(), filter(), and forEach()?
+Ans: map()= I can change each element of a array.
+     filter()= it filters element of a array by depend on condition.
+     forEach()= It is a loop (short version).
+
+4️⃣ What is an arrow function?
+Ans: It ia a short syntax function.
+
+5️⃣ What are template literals?
+Ans: By using this I can implement multiple line of string in backtick(``).
+
+
+
+
+
+
+
+<!-- 
 
 # Assignment-05: GitHub Issues Tracker
 
@@ -126,3 +145,4 @@ Password: admin123
 ---
 
 
+ -->
