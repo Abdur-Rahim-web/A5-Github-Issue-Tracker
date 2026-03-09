@@ -78,7 +78,45 @@
         </div>
     </section>
 
-    
+    <!-- model -->
+    <!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+<dialog id="modal-container" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box space-y-4">
+    <h3 id="modal-title" class="text-3xl font-bold">Fix broken image uploads</h3>
+    <div class="flex justify-start gap-2 items-center">
+        <p id="modal-status" class="bg-green-500 rounded-full p-1 text-[12px]">Opened</p>
+        <img class="h-1 w-1" src="assets/dot.png" alt="">
+        <p class="text-[14px]"><span id="modal-status1">Opened</span> by <span id="modal-author">Fahim Ahmed</span></p>
+        <img class="h-1 w-1" src="assets/dot.png" alt="">
+        <p id="modal-updatedAt" class="text-[14px]">22/02/2026</p>
+    </div>
+
+    <div class="flex gap-2 items-center">
+        <button class="btn btn-soft btn-secondary rounded-full text-[12px]"><i class="fa-solid fa-bug"></i> Bug</button>
+        <button class="btn btn-soft btn-warning rounded-full text-[12px]"><img class="w-4 h-4" src="assets/help.png" alt="">help wanted</button>
+    </div>
+
+    <p id="modal-description">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
+
+    <div  class="flex justify-evenly items-center mx-10 p-2 bg-slate-100 rounded-sm">
+        <div>
+            <p>Assignee:</p>
+            <h2 id="modal-assignee" class="font-bold text-black">Fahim Ahmed</h2>
+        </div>
+        <div>
+            <p>Priority:</p>
+            <button id="modal-priority" class="btn btn-secondary rounded-full text-[12px]">High</button>
+        </div>
+    </div>
+
+      <form class="flex justify-end" method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn btn-primary">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
 
 
 

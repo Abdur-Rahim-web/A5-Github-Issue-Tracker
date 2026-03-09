@@ -1,6 +1,16 @@
 const allIssueContainer = document.getElementById('allIssue-container');
 const totalIssue = document.getElementById('total-issue');
 const loadingSpinner = document.getElementById('loadingSpinner');
+const modalContainer = document.getElementById('modal-container');
+
+const modalTitle = document.getElementById('modal-title');
+const modalStatus = document.getElementById('modal-status');
+const modalStatus1 = document.getElementById('modal-status1');
+const modalAuthor = document.getElementById('modal-author');
+const modalUpdatedAt = document.getElementById('modal-updatedAt');
+const modalDescription = document.getElementById('modal-description');
+const modalAssignee = document.getElementById('modal-assignee');
+const modalPriority = document.getElementById('modal-priority');
 
 
 // for toggleButton
@@ -56,7 +66,7 @@ function displayAllIssue(issues){
                 </div>
 
                 <h2 class="text-2xl font-bold">${issue.title}</h2>
-                <p >${issue.description}</p>
+                <p class="line-clamp-2">${issue.description}</p>
 
                 <div class="flex gap-2 items-center">
                     <button class="btn btn-soft btn-secondary"><i class="fa-solid fa-bug"></i> Bug</button>
@@ -67,6 +77,8 @@ function displayAllIssue(issues){
 
                 <p>${issue.author}</p>
                 <p>${issue.updatedAt}</p>
+                <button class="btn btn-soft btn-info" onclick=openIssuesModal(${issue.id})>Details</button>
+                
             </div>`;
         allIssueContainer.appendChild(card);
     });
@@ -93,6 +105,27 @@ function showClosedIssues(){
 function showAllIssues(){
     allIssueContainer.innerHTML = "";
     displayAllIssue(allIssuesData);
+}
+
+
+async function openIssuesModal(issueId){
+    console.log(issueId)
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${issueId}`) 
+    const Data = await res.json()
+    const issueDetails = Data.data;
+    console.log(issueDetails) 
+    modalContainer.showModal();
+
+    modalTitle.textContent = issueDetails.title;
+    modalStatus.textContent = issueDetails.status;
+    modalStatus1.textContent = issueDetails.status;
+    modalAuthor.textContent = issueDetails.author;
+    modalUpdatedAt.textContent = issueDetails.updatedAt;
+    modalDescription.textContent = issueDetails.description;
+    modalAssignee.textContent = issueDetails.assignee;
+    modalPriority.textContent = issueDetails.priority;
+
+    modalPriority.classList = `${issueDetails.priority=='high'?'btn btn-soft btn-secondary rounded-full':''} ${issueDetails.priority=='medium'?'btn bg-[#FFF6D1] text-[#F59E0B] rounded-full':''} ${issueDetails.priority=='low'?'btn bg-[#FECACA] text-gray rounded-full':''}`;
 }
 
 
